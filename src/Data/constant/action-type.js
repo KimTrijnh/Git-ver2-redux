@@ -1,0 +1,2 @@
+
+export const SEARCH_ISSUE = 'SEARCH_ISSUE'
