@@ -5,8 +5,6 @@ import Main from '../Components/Main/Main'
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
 
-
-
 class App extends React.Component {
     constructor() {
         super();
