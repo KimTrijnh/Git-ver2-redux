@@ -7,16 +7,16 @@ const mapStateToProps = state => {
     return {issues : state.issues}
 }
 
-const connectedIssues = (issues) => {
-    return
+const connectedIssues = ({issues}) => 
     (<div className="issueContainer">
         {issues.length ? issues.map(issue =>
         <IssueItem issue={issue}/>):
         <Spinner />}
     </div>
     )
-}
 
+
+const IssueContainer = connect(mapStateToProps)(connectedIssues)
  
 
 // const IssueContainer = (props) => (

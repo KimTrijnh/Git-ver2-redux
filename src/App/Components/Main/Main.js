@@ -5,6 +5,8 @@ import LinkTo from '../Link/LinkTo';
 import {ISSUES_DATA} from '../../../Data/MockData'
 
 
+
+
 const Main = (props) => (
   <div className="Main container">
     <LinkTo href="#" children="# AdeleD/react-paginate"/>
