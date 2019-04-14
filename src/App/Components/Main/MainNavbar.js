@@ -8,7 +8,7 @@ const MainNavbar = (props) => (
     <div className="MainNavbar">
     <Nav >
     <Nav.Item>
-     <Search children="Search" handleSubmit={props.handleSearch} />
+     <Search children="Search" handleSubmit={(search) => props.handleSearch(search)} />
     </Nav.Item>
     <Nav.Item>
         <MyButton children="Total"/ >

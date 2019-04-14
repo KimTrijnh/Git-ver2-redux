@@ -6,17 +6,24 @@ class Search extends Component {
   constructor() {
     super();
     this.state = { search: '' };
+
   }
 
   handleChange(e){
-     this.setState({[e.target.id]: [e.target.value]}, () => console.log(this.state.search))
+     this.setState({search: e.target.value}, () => console.log(this.state.search))
+  }
+
+
+  handleSubmit(e, search) {
+      e.preventDefault()
+      this.props.handleSubmit(search)
   }
 
   render() {
     const {search} = this.state
     return (
       <div className="search">
-        <form onSubmit={() =>this.props.handleSubmit(search)}>
+        <form onSubmit={(e) => this.handleSubmit(e,search)}>
           <input
             className="form-control"
             id="search"
