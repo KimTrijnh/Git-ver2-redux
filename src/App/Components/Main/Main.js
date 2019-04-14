@@ -24,6 +24,7 @@ class Main extends Component {
     }
   }
 
+
   async getIssues(search, selectedPage) {
     let token = sessionStorage.getItem('token')
     let url = `https://api.github.com/repos/${search}/issues?state=all&page=${selectedPage}&per_page=10&access_token=${token}`;
@@ -52,7 +53,11 @@ class Main extends Component {
  async handleSearch(search) {
    let selectedPageTo1 = await this.handleSelected(1)
    let updateIssues = await this.getIssues(search, 1)
-   let updateTotalItems = await this.setState({totalItems : this.state.issues[0].number})
+   if(this.state.issues.length) {
+    let updateTotalItems = await this.setState({totalItems : this.state.issues[0].number})
+   } else {
+    let updateTotalItems = await this.setState({totalItems : 0})
+   }
   }
 
   async handleChangePage(selectedPage) {
@@ -65,7 +70,7 @@ class Main extends Component {
     const { issues, search, selectedPage, isLoading, totalItems } = this.state;
     return (
       <div className="Main container">
-        <MainNavbar handleSearch={search => this.handleSearch(search)} />
+        <MainNavbar handleSearch={search => this.handleSearch(search)} totalItems={totalItems}/>
         <LinkTo href="#" children={search} />
 
         <PaginationComponent
