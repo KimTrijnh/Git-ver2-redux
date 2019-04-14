@@ -1,14 +1,14 @@
 import React from 'react'
 import { Nav } from 'react-bootstrap'
 import MyButton from '../Button/MyButton';
-import { Search } from './Search'
+import Search from './Search'
 
 
 const MainNavbar = (props) => (
     <div className="MainNavbar">
     <Nav >
     <Nav.Item>
-     <Search children="Search" />
+     <Search children="Search" handleSubmit={props.handleSearch} />
     </Nav.Item>
     <Nav.Item>
         <MyButton children="Total"/ >
